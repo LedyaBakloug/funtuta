@@ -10,4 +10,5 @@ public class FuntutaApplication {
 		SpringApplication.run(FuntutaApplication.class, args);
 	}
 
+
 }
