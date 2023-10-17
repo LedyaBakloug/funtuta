@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-    @Email
+//    @Email
     private String email;
 
     public Long getId() {

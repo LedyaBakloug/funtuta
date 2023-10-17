@@ -2,6 +2,7 @@ package com.ledya.funtuta.controller;
 
 import com.ledya.funtuta.model.User;
 import com.ledya.funtuta.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,4 +27,25 @@ public class UserController {
     public List<User> findAll() {
         return userService.findAll();
     }
+
+    @PostMapping(value = "/adduser")
+    public User addUser(@RequestBody User user) {
+        return userService.saveUser(user);
+    }
+
+    @PostMapping("/addusers")
+    public List<User> addUsers(@RequestBody List<User> users) {
+        return userService.saveUsers(users);
+    }
+
+    @PutMapping("/update")
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        return userService.deleteUser(id);
+    }
+
 }

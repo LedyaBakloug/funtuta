@@ -23,7 +23,27 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List<User> findAllByFirstName(String name) {
-        return userRepository.findAllByFirstName(name);
+    public User saveUser(User user){
+        return userRepository.save(user);
     }
+
+    public List<User> saveUsers(List<User> users){
+        return userRepository.saveAll(users);
+    }
+
+    public User updateUser(User user){
+        User existingUser=userRepository.findById(user.getId()).orElse(null);
+        existingUser.setUsername(user.getUsername());
+        existingUser.setPassword(user.getPassword());
+        existingUser.setFirstName(user.getFirstName());
+        existingUser.setLastName(user.getLastName());
+        existingUser.setEmail(user.getEmail());
+        return userRepository.save(existingUser);
+    }
+
+    public String deleteUser(Long id){
+        userRepository.deleteById(id);
+        return "User deleted " + id;
+    }
+
 }
