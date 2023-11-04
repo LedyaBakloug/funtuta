@@ -1,6 +1,7 @@
 package com.ledya.funtuta.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 
 @Entity
 @Table(name = "users")
@@ -13,25 +14,16 @@ public class User {
     private String password;
     private String firstName;
     private String lastName;
-//    @Email
+    @Email
     private String email;
     private String phoneNumber;
 
-    public User(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+
 
     public Long getId() {
         return id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -75,5 +67,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }
