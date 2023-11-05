@@ -14,6 +14,6 @@ CREATE TABLE users
     CONSTRAINT UQ_Users_Email UNIQUE (email)
 );
 
-INSERT INTO users VALUES (id, 'Ledya', 'Bakloug', 'led.bak@djdkj.com', 'ldndjn', 'ledger', '68376387383')
+INSERT INTO users VALUES (id, 'Ledya', 'Bakloug', 'led.bak@djdkj.com', 'ldndjn', 'ledger', '68376387383');
 
 SELECT * FROM users;
